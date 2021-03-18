@@ -1,0 +1,83 @@
+@mixin font-bold {
+  font-family: $font;
+  font-weight: 700;
+}
+
+@mixin font-medium {
+  font-family: $font;
+  font-weight: 500;
+}
+
+@mixin font-regular {
+  font-family: $font;
+  font-weight: 400;
+}
+
+@mixin font-light {
+  font-family: $font;
+  font-weight: 300;
+}
+
+@mixin paragraph-styles {
+  @include font-regular;
+  color: $color-text;
+  font-size: $font-paragraph-size;
+  line-height: 27px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  @include font-bold;
+}
+
+h1 {
+  font-size: 32px;
+  line-height: 38px;
+}
+
+h2 {
+  font-size: 28px;
+  line-height: 34px;
+}
+
+h3 {
+  position: relative;
+  font-size: 25px;
+  line-height: 25px;
+}
+
+p,
+figcaption,
+ul li {
+  @include paragraph-styles;
+}
+
+ul li {
+  margin-bottom: 15px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+a {
+  @include paragraph-styles;
+  @include font-medium;
+  transition-property: color;
+  transition-duration: 0.25s;
+  transition-timing-function: ease-in-out;
+  text-decoration: none;
+
+  &:focus {
+    outline: none;
+  }
+
+  &:hover {
+    transition-timing-function: ease-in;
+    color: $color-primary-dark;
+    text-decoration: none;
+  }
+}
+
+strong {
+  font-weight: bold;
+}
