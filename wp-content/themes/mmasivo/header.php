@@ -32,20 +32,20 @@
     global $project_options; ?>
 
     <header class=¨o-header¨>
-        <div class="grid">
+      <div class="grid-middle">
         <div class="o-header__logo">
-        <img src="" alt="">
-    
-        
-    <nav class=¨o-header__navigation¨>
-      <ul>
-          <li><a href="#"> Productos </a></li>
-          <li><a href="#"> Precios </a></li>
-          <li><a href="#"> Nosotros </a></li>
-          <li><a href="#"> Crear cuenta </a></li>
-          <li><a href="#"> Contacto </a></li>
-        </ul>
-      </nav>
+          <img src="" alt="">
+        </div>
+
+        <nav class=¨o-header__navigation¨>
+          <ul>
+            <li><a href="#"> Productos </a></li>
+            <li><a href="#"> Precios </a></li>
+            <li><a href="#"> Nosotros </a></li>
+            <li><a href="#"> Crear cuenta </a></li>
+            <li><a href="#"> Contacto </a></li>
+          </ul>
+        </nav>
       </div>
     </header>
         
