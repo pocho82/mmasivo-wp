@@ -18,68 +18,47 @@
         <h3 class=sub-title-content>Crea una experiencia de charla perfecta</h3>
         <div class="grid-3_xs-1_md-2">
           <div class="item">
-          <img src="<?php echo get_template_directory() . '/images/icons/sms.svg' ?>" alt="">
-          <h3> SMS </h3>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi facere quisquam nesciunt!</p>
+            <img src="<?php echo get_template_directory() . '/images/icons/sms.svg' ?>" alt="">
+            <h3> SMS </h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi facere quisquam nesciunt!</p>
           </div>
 
-        <div class="imagenes-individuales">
-        <img src="" alt="">
-        <h3> Voz </h3>
-        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Unde harum dolorum totam? Quo, minus saepe?</p>
+          <div class="item">
+            <img src="<?php echo get_template_directory() . '/images/icons/sms.svg' ?>" alt="">
+            <h3> SMS </h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi facere quisquam nesciunt!</p>
+          </div>
 
-        <div class="imagenes-individuales">
-        <img src="" alt="">
-        <h3> Email </h3>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi facere quisquam nesciunt!</p>
-        
-        <div class="imagenes-individuales">
-        <img src="" alt="">
-        <h3> WhatsApp Bussiness </h3>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi facere quisquam nesciunt!</p>
+          <div class="item">
+            <img src="<?php echo get_template_directory() . '/images/icons/sms.svg' ?>" alt="">
+            <h3> SMS </h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi facere quisquam nesciunt!</p>
+          </div>
 
-        <div class="imagenes-individuales">
-        <img src="" alt="">
-        <h3> Viber Bussiness </h3>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi facere quisquam nesciunt!</p>
-        
-        <div class="imagenes-individuales">
-        <img src="" alt="">
-        <h3> RCS </h3>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi facere quisquam nesciunt!</p>
+          <div class="item">
+            <img src="<?php echo get_template_directory() . '/images/icons/sms.svg' ?>" alt="">
+            <h3> SMS </h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi facere quisquam nesciunt!</p>
+          </div>
 
-        <div class="imagenes-individuales">
-        <img src="" alt="">
-        <h3> Aplicaciones del chat </h3>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi facere quisquam nesciunt!</p>
+          <div class="item">
+            <img src="<?php echo get_template_directory() . '/images/icons/sms.svg' ?>" alt="">
+            <h3> SMS </h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi facere quisquam nesciunt!</p>
+          </div>
+
+          <div class="item">
+            <img src="<?php echo get_template_directory() . '/images/icons/sms.svg' ?>" alt="">
+            <h3> SMS </h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi facere quisquam nesciunt!</p>
+          </div>
+
+          <div class="item">
+            <img src="<?php echo get_template_directory() . '/images/icons/sms.svg' ?>" alt="">
+            <h3> SMS </h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi facere quisquam nesciunt!</p>
+          </div>
         </div>
-
-        <div class="imagenes-individuales">
-        <img src="" alt="">
-        <h3> Facebook Messenger </h3>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi facere quisquam nesciunt!</p>
-        </div>
-
-        <div class="imagenes-individuales">
-        <img src="" alt="">
-        <h3> LINEA </h3>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi facere quisquam nesciunt!</p>
-        </div>
-
-        <div class="imagenes-individuales">
-        <img src="" alt="">
-        <h3> Mensajeria de aplicaciones moviles </h3>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi facere quisquam nesciunt!</p>
-        </div>
-
-        <div class="imagenes-individuales">
-        <img src="" alt="">
-        <h3> Chat en vivo </h3>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi facere quisquam nesciunt!</p>
-        </div>
-        </section>
-        </main>
-
     </section>
 
     <?php
