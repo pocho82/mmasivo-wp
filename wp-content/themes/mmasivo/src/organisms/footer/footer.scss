@@ -1,3 +1,35 @@
 .o-footer {
+    background-color: white;
+    box-shadow: 0px 2px 0px 28px rgba(36,36,36,0.63);
+    
+        
+    &__logo {
+      img {
+        height: 95px;
+      }    
+    }
   
-}
+    &__menu {
+        .title {
+            @include font-bold;
+            margin-bottom: 15px;
+            font-size: 27px;
+        }
+
+        ul {     
+            li {
+                margin-bottom: 10px;
+                              
+                &:last-child {
+                    margin-bottom: 0px;
+                }
+
+                a {
+                    @include font-light;
+                    font-size: 22px;
+                    line-height: 1.2;            
+                }
+            }
+        }
+    }
+}  
