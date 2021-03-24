@@ -30,12 +30,4 @@ img {
 #wrapper {
   max-width: 100vw;
   overflow: hidden;
-
-  @media all and (max-width: $screen-lg) {
-    padding-top: 101px;
-  }
-
-  @media all and (min-width: $screen-lg) {
-    padding-left: 110px;
-  }
 }

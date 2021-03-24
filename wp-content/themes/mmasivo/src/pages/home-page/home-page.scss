@@ -1,5 +1,11 @@
 .p-home-page {
   &__header {
+    background-image: url(../images/bg-header-homepage.svg);
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+
+  &__features {
 
   }
 

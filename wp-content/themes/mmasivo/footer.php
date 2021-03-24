@@ -4,7 +4,6 @@
       //$logo = file_get_contents(wp_get_attachment_url($logo['id'])); ?>
 
       </main>
-
     </div>
 
     <footer class="o-footer">
@@ -42,8 +41,6 @@
           </div>
         </div>
       </div>
-
-
     </footer>
 
     <?php wp_footer(); ?>
