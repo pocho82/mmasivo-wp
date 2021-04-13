@@ -1,7 +1,8 @@
 <?php
       global $project_options;
-      //$logo = $project_options['general_settings_logo'];
-      //$logo = file_get_contents(wp_get_attachment_url($logo['id'])); ?>
+      $logo = $project_options['general_settings_logo'];
+      $logo = file_get_contents( wp_get_attachment_url( $logo['id'] ) );
+      $menu_items = $project_options['menu_settings_menu_items']; ?>
 
       </main>
     </div>
@@ -9,40 +10,39 @@
     <footer class="o-footer">
       <div class="container">
         <div class="grid">
-          <div class="col-3 o-footer__logo"> 
-            <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Flogos-download.com%2Fwp-content%2Fuploads%2F2016%2F03%2FFiat_logo.png&f=1&nofb=1" alt=""> 
-          </div>
-          <div class="col-3 o-footer__menu">
-            <h3 class="title"> Productos </h3>
-            <ul>
-              <li><a href=""> WhatsApp Bussiness </a></li>
-              <li><a href=""> SMS </a></li>
-              <li><a href=""> Voz </a></li>
-              <li><a href=""> Email </a></li>
-              <li><a href=""> Mensajeria de aplicaciones moviles </a></li>
-              <li><a href=""> Rcs </a></li>
-            </ul>
-          </div>
-          <div class="col-3 o-footer__menu">
-            <h3 class="title"> Soluciones </h3>
-            <ul>
-              <li><a href=""> Seguridad </a></li>
-              <li><a href=""> Marketing </a></li>
-              <li><a href=""> Retención de clientes </a></li>
-              <li><a href=""> Eficiencia operativa </a>
-              <li><a href=""> Finanzas </a></li> 
-            </ul>
-          </div>
-          <div class="col-3 o-footer__menu">
-            <h3 class="title"> Empresa </h3>
-            <ul>
-              <li><a href=""> Contacto </a></li>  
-            </ul>
-          </div>
+          <div class="o-footer__logo col-3_xs-12_md-4"><?php
+            echo $logo; ?>
+          </div><?php
+
+          if ( !empty( $menu_items ) ) : ?>
+            <div class="o-footer__menus col-9_xs-12_md-8"><?php
+              foreach ( $menu_items as $menu_item ) : 
+                $post_type = get_post_type_object( $menu_item );
+                $posts_by_post_type = get_posts( array(
+                  'post_type' => $menu_item,
+                  'posts_per_page' => -1,
+                  'orderby'    => 'menu_order',
+                  'sort_order' => 'asc'
+                ) );
+                  if ( !empty($posts_by_post_type) ) : ?>
+                    <div class="menu">
+                      <h3 class="menu__title"><?php echo $post_type->labels->name; ?></h3>
+                      <ul class="menu__container"><?php
+                        foreach ( $posts_by_post_type as $post_by_post_type ) : 
+                          $permalink = get_permalink($post_by_post_type->ID);
+                          $title = get_the_title($post_by_post_type->ID); ?>
+                          <li class="menu__item"><a href="<?php echo $permalink; ?>"><?php echo $title; ?></a></li><?php 
+                        endforeach; ?>
+                      </ul>
+                    </div><?php
+                  endif;
+              endforeach; ?>
+            </div><?php
+          endif; ?>
         </div>
       </div>
-    </footer>
-
-    <?php wp_footer(); ?>
+    </footer><?php 
+    
+    wp_footer(); ?>
   </body>
 </html>

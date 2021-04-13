@@ -1,10 +1,10 @@
 === Radio Buttons for Taxonomies ===
 Contributors: helgatheviking
-Donate link: https://inspirepay.com/pay/helgatheviking ‎
+Donate link: https://www.paypal.com/fundraiser/charity/1451316
 Tags: taxonomy, admin, interface, ui, post, radio, terms, metabox
-Requires at least: 3.8
-Tested up to: 4.5.1
-Stable tag: 1.7.7
+Requires at least: 4.5.0
+Tested up to: 5.5.0
+Stable tag: 2.3.1
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -18,7 +18,7 @@ Originally based on the the [class by Stephen Harris](https://github.com/stephen
 
 = Support =
 
-Support is handled in the [WordPress forums](http://wordpress.org/support/plugin/radio-button-for-taxonomies). Please note that support is limited and does not cover any custom implementation of the plugin. Before posting a question, read the [FAQ](http://wordpress.org/plugins/nav-menu-roles/faq/) and confirm that the problem still exists with a default theme and with all other plugins disabled. 
+Support is handled in the [WordPress forums](http://wordpress.org/support/plugin/radio-buttons-for-taxonomies). Please note that support is limited and does not cover any custom implementation of the plugin. Before posting a question, read the [FAQ](https://wordpress.org/plugins/radio-buttons-for-taxonomies/#faq) and confirm that the problem still exists with a default theme and with all other plugins disabled.
 
 Please report any bugs, errors, warnings, code problems to [Github](https://github.com/helgatheviking/Radio-Buttons-for-Taxonomies/issues)
 
@@ -26,7 +26,7 @@ Please report any bugs, errors, warnings, code problems to [Github](https://gith
 
 1. Upload the `plugin` folder to the `/wp-content/plugins/` directory
 1. Activate the plugin through the 'Plugins' menu in WordPress
-1. Go to Settings>Radio Buttons for Taxonomies and use the checkboxes to indicate which taxonomies you'd like to use radio buttons
+1. Go to Settings > Radio Buttons for Taxonomies and use the checkboxes to indicate which taxonomies you'd like to use radio buttons
 
 == Screenshots ==
 
@@ -42,16 +42,93 @@ This was a feature added in version 1.4, but due to some faulty logic on my part
 It has come to my attention that not everybody likes this feature, so I have enabled an easy way to *disable* it for taxonomies that you wish to make mandatory.  Simply add the following to your theme's functions.php or your site's custom functions plugin.
 
 `
-add_filter( "radio-buttons-for-taxonomies-no-term-{$taxonomy}", "__return_FALSE" );
+add_filter( "radio_buttons_for_taxonomies_no_term_{$taxonomy}", "__return_FALSE" );
 `
 
 So for example, to disabled the "No term" option on a taxonomy called "genre" you'd do the following:
 
 `
-add_filter( 'radio-buttons-for-taxonomies-no-term-genre', '__return_FALSE' );
+add_filter( 'radio_buttons_for_taxonomies_no_term_genre', '__return_FALSE' );
 `
 
 == Changelog ==
+
+= 2.3.1 =
+* Fix: Optimize compatibility for Tabify Edit Screen. Props @remcokalf.
+
+Removed 'tabify_add_meta_boxes' action, as it is doubled by do_action( 'add_meta_boxes')in settings-posttype.php of Tabify Edit Screen.
+= 2.3.0 =
+* New: Optimize to load taxonomy class hooks/callbacks only on radio-enabled taxonomies. Props @remcokalf.
+* New: Compatibility for Tabify Edit Screen
+
+= 2.2.3 =
+* Fix: Add term for non-hierarchical custom taxonomy in custom post type
+
+= 2.2.2 =
+* Fix: Add term for custom taxonomy in custom post type
+* Fix: remove jQuery 3 deprecated handlers
+* Fix: Don't load the metabox script in the block editor 
+
+= 2.2.1 =
+* Fix: Define schema for new REST field added in 2.2.0
+
+= 2.2.0 =
+* New: Conditionally show a "no term" radio button in Gutenberg sidebar. props @tomjn!
+
+= 2.1.1 =
+* Fix: Missing NONCE preventing bulk/quick edit from saving correctly.
+* Fix: Use <RadioControl> in Gutenberg sidebar instead of <input>
+
+= 2.1.0 =
+* Fix: Refactor sidebar script to remove unneeded higher order components. Props @torounit!
+* Fix: Add core class to radio buttons in sidebar. Props @torounit!
+
+= 2.0.8 =
+* Fix: Missing index.asset.php file.
+
+= 2.0.7 =
+* Fix: "No {$term}" not translatable.
+
+= 2.0.6 =
+* Fix: Vulnerable nonce in save routine.
+
+= 2.0.5 =
+* Fix: Admin settings- Get all taxonomies with show_ui=true.
+
+= 2.0.4 =
+* Fix: Settings link on plugin page.
+
+= 2.0.3 =
+* Fix: Stop breaking quick edit on Taxonomy pages.
+
+= 2.0.2 =
+* Update from [Gutenberg source](https://github.com/WordPress/gutenberg/pull/14786)
+
+= 2.0.1 =
+* Fix: Fatal error use_block_editor_for_post_type() undefined in WP 4.x
+
+= 2.0.0 =
+* Gutenberg compatibility! Props @5ally and @leymannx
+
+= 1.8.3 =
+* Escape all the inputs. Props @tomjn and @rtCamp
+
+= 1.8.2 =
+* Friendlier error messages
+
+= 1.8.1 =
+* Fix: fatal error for undefined boolval in PHP < 5.5
+
+= 1.8.0 =
+* Compatibility with WordPress 4.9.2
+* Update donation link
+* Add radio_buttons_for_taxonomies_no_term_selected_text filter to allow for custom "No Genre" texts. props @hokoo
+* Convert switch_terms_filter() to get and setter
+* Rename radio-buttons-for-taxonomies-no-term-$taxonomy filter to radio_buttons_for_taxonomies_no_term_$taxonomy to disable the "No term" feature
+
+= 1.7.8 =
+* Compatibility with WordPress 4.8.3
+* Update donation link
 
 = 1.7.7 =
 * Compatibility with WordPress 4.4

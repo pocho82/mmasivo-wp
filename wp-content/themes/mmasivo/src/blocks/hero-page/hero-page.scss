@@ -1,0 +1,76 @@
+.hero-page {
+  padding: 40px 0;
+
+  &--bg-blue {
+    background-color: rgba($color-blue, 0.25);
+  }
+
+  &--bg-purple {
+    background-color: rgba($color-purple, 0.25);
+  }
+
+  &__content {
+    @media all and (max-width: $screen-md - 1px) {
+      order: 2;
+      text-align: center;
+    }
+  }
+
+  &__breadcrumb {
+    margin-bottom: 20px;
+  }
+
+  &__title {
+    @include title-block-font-styles;
+  }
+
+  &__description {
+    margin-top: 30px;
+    line-height: 1.7;
+  }
+
+  &__actions {
+    margin-top: 25px;
+
+    .a-button {
+      display: block;
+      font-size: 15px;
+
+      @media all and (max-width: 900px) {
+        text-align: center;
+      }
+
+      &:nth-child(n+2) {
+        margin-top: 15px;
+
+        @media all and (min-width: 900px) {
+          margin-top: 0;
+          margin-left: 15px;
+        }
+      }
+
+      @media all and (min-width: 900px) {
+        display: inline-block;
+      }
+    }
+  }
+
+  &__image {
+    padding: 80px 0;
+    background-image: url(../images/pattern_hero_page.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center center;
+
+    @media all and (min-width: $screen-md) {
+      padding: 130px 0;
+    }
+  }
+
+  &--bg-blue,
+  &--bg-purple {
+    .hero-page__image {
+      background-image: url(../images/pattern_hero_page--blank.svg);
+    }
+  }
+}

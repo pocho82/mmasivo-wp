@@ -52,8 +52,8 @@ $args = array(
     //Specify if the admin menu should appear or not. Options: menu or submenu (Under appearance only)
     'allow_sub_menu'       => true,
     // Show the sections below the admin menu item or not
-    'menu_title'           => __( 'Configuraciones del Tema', 'mmasivo' ),
-    'page_title'           => __( 'Configuraciones del Tema', 'mmasivo' ),
+    'menu_title'           => __( 'Configuraciones del Tema', 'mmasivo-theme' ),
+    'page_title'           => __( 'Configuraciones del Tema', 'mmasivo-theme' ),
     // You will need to generate a Google API key to use this feature.
     // Please visit: https://developers.google.com/fonts/docs/developer_api#Auth
     'google_api_key'       => '',
@@ -152,19 +152,19 @@ $args = array(
 $args['admin_bar_links'][] = array(
     'id'    => 'redux-docs',
     'href'  => 'http://docs.reduxframework.com/',
-    'title' => __( 'Documentación', 'mmasivo' ),
+    'title' => __( 'Documentación', 'mmasivo-theme' ),
 );
 
 $args['admin_bar_links'][] = array(
     //'id'    => 'redux-support',
     'href'  => 'https://github.com/ReduxFramework/redux-framework/issues',
-    'title' => __( 'Soporte', 'mmasivo' ),
+    'title' => __( 'Soporte', 'mmasivo-theme' ),
 );
 
 $args['admin_bar_links'][] = array(
     'id'    => 'redux-extensions',
     'href'  => 'reduxframework.com/extensions',
-    'title' => __( 'Extensiones', 'mmasivo' ),
+    'title' => __( 'Extensiones', 'mmasivo-theme' ),
 );
 
 // Panel Intro text -> before the form
@@ -174,9 +174,9 @@ if ( ! isset( $args['global_variable'] ) || $args['global_variable'] !== false )
     } else {
         $v = str_replace( '-', '_', $args['opt_name'] );
     }
-    //$args['intro_text'] = sprintf( __( '<p>Did you know that Redux sets a global variable for you? To access any of your saved options from within your code you can use your global variable: <strong>$%1$s</strong></p>', 'mmasivo' ), $v );
+    //$args['intro_text'] = sprintf( __( '<p>Did you know that Redux sets a global variable for you? To access any of your saved options from within your code you can use your global variable: <strong>$%1$s</strong></p>', 'mmasivo-theme' ), $v );
 } else {
-    //$args['intro_text'] = __( '<p>This text is displayed above the options panel. It isn\'t required, but more info is always better! The intro_text field accepts all HTML.</p>', 'mmasivo' );
+    //$args['intro_text'] = __( '<p>This text is displayed above the options panel. It isn\'t required, but more info is always better! The intro_text field accepts all HTML.</p>', 'mmasivo-theme' );
 }
 
 Redux::setArgs( $opt_name, $args );
@@ -184,102 +184,249 @@ Redux::setArgs( $opt_name, $args );
 $tabs = array(
     array(
         'id'      => 'redux-help-tab-1',
-        'title'   => __( 'Theme Information 1', 'mmasivo' ),
-        'content' => __( '<p>This is the tab content, HTML is allowed.</p>', 'mmasivo' )
+        'title'   => __( 'Theme Information 1', 'mmasivo-theme' ),
+        'content' => __( '<p>This is the tab content, HTML is allowed.</p>', 'mmasivo-theme' )
     ),
     array(
         'id'      => 'redux-help-tab-2',
-        'title'   => __( 'Theme Information 2', 'mmasivo' ),
-        'content' => __( '<p>This is the tab content, HTML is allowed.</p>', 'mmasivo' )
+        'title'   => __( 'Theme Information 2', 'mmasivo-theme' ),
+        'content' => __( '<p>This is the tab content, HTML is allowed.</p>', 'mmasivo-theme' )
     )
 );
 Redux::setHelpTab( $opt_name, $tabs );
 
 // Set the help sidebar
-$content = __( '<p>This is the sidebar content, HTML is allowed.</p>', 'mmasivo' );
+$content = __( '<p>This is the sidebar content, HTML is allowed.</p>', 'mmasivo-theme' );
 Redux::setHelpSidebar( $opt_name, $content );
 
 // -> Example: Section creation
 Redux::setSection( $opt_name, array(
-    'title'            => __( 'Site', 'mmasivo' ),
+    'title'            => __( 'Site', 'mmasivo-theme' ),
     'id'               => 'basic',
-    'desc'             => __( 'Settings of site.', 'mmasivo' ),
+    'desc'             => __( 'Settings of site.', 'mmasivo-theme' ),
     'customizer_width' => '400px',
     'icon'             => 'el el-home'
 ));
 
 Redux::setSection( $opt_name, array(
-    'title'                 => __('General','mmasivo'),
+    'title'                 => __('General','mmasivo-theme'),
     'id'                    => 'general_settings',
     'subsection'            => true,
     'customizer_width'      => '400px',
-    'desc'                  => __('General Settings', 'mmasivo'),
+    'desc'                  => __('General Settings', 'mmasivo-theme'),
     'fields'                => array(
-      array(
-        'id'       => 'general_settings_logo',
-        'type'     => 'media',
-        'title'    => __( 'Logo', 'mmasivo' ),
-        'subtitle' => __( 'Upload a svg file', 'mmasivo' ),
-      ),
-      array(
-        'id'       => 'general_settings_logo_symbol',
-        'type'     => 'media',
-        'title'    => __( 'Logo Symbol', 'mmasivo' ),
-      ),
-      array(
-        'id'       => 'general_settings_phone',
-        'type'     => 'text',
-        'title'    => __( 'Phone', 'mmasivo' ),
-        'subtitle' => __( 'Type your phone contact', 'mmasivo' ),
-      ),
-      array(
-        'id'       => 'general_settings_email',
-        'type'     => 'text',
-        'title'    => __( 'Email', 'mmasivo' ),
-        'subtitle' => __( 'Type your email contact', 'mmasivo' ),
-      ),
-      array(
-        'id'       => 'general_settings_social_linkedin',
-        'type'     => 'text',
-        'title'    => __( 'Linkedin', 'mmasivo' ),
-        'subtitle' => __( 'Type your Linkedin account', 'mmasivo' ),
-      ),
-      array(
-        'id'       => 'general_settings_social_facebook',
-        'type'     => 'text',
-        'title'    => __( 'Facebook', 'mmasivo' ),
-        'subtitle' => __( 'Type your Facebook account', 'mmasivo' ),
-      ),
-      array(
-        'id'       => 'general_settings_social_twitter',
-        'type'     => 'text',
-        'title'    => __( 'Twitter', 'mmasivo' ),
-        'subtitle' => __( 'Type your Twitter account', 'mmasivo' ),
-      ),
-      array(
-        'id'       => 'general_settings_homepage',
-        'type'     => 'select',
-        'multi'    => false,
-        'data'     => 'page',
-        'title'    => __( 'Homepage', 'mmasivo' ),
-        'subtitle' => __( 'Choose your home', 'mmasivo' ),
-      ),
-      array(
-        'id'       => 'general_settings_about-us',
-        'type'     => 'select',
-        'multi'    => false,
-        'data'     => 'page',
-        'title'    => __( 'About Us', 'mmasivo' ),
-        'subtitle' => __( 'Choose your About Us Page', 'mmasivo' ),
-      ),
-      array(
-        'id'       => 'general_settings_services',
-        'type'     => 'select',
-        'multi'    => false,
-        'data'     => 'page',
-        'title'    => __( 'Services', 'mmasivo' ),
-        'subtitle' => __( 'Choose your Services Page', 'mmasivo' ),
-      ),
+        array(
+            'id'       => 'general_settings_logo',
+            'type'     => 'media',
+            'title'    => __( 'Logo', 'mmasivo-theme' ),
+            'subtitle' => __( 'Upload a svg file', 'mmasivo-theme' ),
+        ),
+        array(
+            'id'       => 'general_settings_logo_symbol',
+            'type'     => 'media',
+            'title'    => __( 'Logo Symbol', 'mmasivo-theme' ),
+        ),
+        array(
+            'id'       => 'general_settings_phone',
+            'type'     => 'text',
+            'title'    => __( 'Phone', 'mmasivo-theme' ),
+            'subtitle' => __( 'Type your phone contact', 'mmasivo-theme' ),
+        ),
+        array(
+            'id'       => 'general_settings_email',
+            'type'     => 'text',
+            'title'    => __( 'Email', 'mmasivo-theme' ),
+            'subtitle' => __( 'Type your email contact', 'mmasivo-theme' ),
+        ),
+        array(
+            'id'       => 'general_settings_social_linkedin',
+            'type'     => 'text',
+            'title'    => __( 'Linkedin', 'mmasivo-theme' ),
+            'subtitle' => __( 'Type your Linkedin account', 'mmasivo-theme' ),
+        ),
+        array(
+            'id'       => 'general_settings_social_facebook',
+            'type'     => 'text',
+            'title'    => __( 'Facebook', 'mmasivo-theme' ),
+            'subtitle' => __( 'Type your Facebook account', 'mmasivo-theme' ),
+        ),
+        array(
+            'id'       => 'general_settings_social_twitter',
+            'type'     => 'text',
+            'title'    => __( 'Twitter', 'mmasivo-theme' ),
+            'subtitle' => __( 'Type your Twitter account', 'mmasivo-theme' ),
+        ),
+    )
+));
+
+Redux::setSection( $opt_name, array(
+    'title'                 => __('Menu','mmasivo-theme'),
+    'id'                    => 'menu_settings',
+    'subsection'            => true,
+    'customizer_width'      => '400px',
+    'desc'                  => __('Menu Settings', 'mmasivo-theme'),
+    'fields'                => array(
+        array(
+            'id'       => 'menu_settings_menu_items',
+            'type'     => 'button_set',
+            'title'    => __('Items in the menu', 'mmasivo-theme'),
+            'subtitle' => __('Select the items that will included in the menu', 'mmasivo-theme'),
+            'multi'    => true,
+            'data'     => 'post_type',
+            'args'  => array(
+                'public'   => true,
+                '_builtin' => false
+            )
+        ),
+
+        array(
+            'id'       => 'menu_settings_products_title',
+            'type'     => 'text',
+            'title'    => __( 'Products Title Menu', 'mmasivo-theme' ),
+            'subtitle' => __( 'Type the title for Products Menu', 'mmasivo-theme' ),
+        ),
+        array(
+            'id'       => 'menu_settings_products_subtitle',
+            'type'     => 'text',
+            'title'    => __( 'Products Subtitle Menu', 'mmasivo-theme' ),
+            'subtitle' => __( 'Type the subtitle for Products Menu', 'mmasivo-theme' ),
+        ),
+        array(
+            'id'       => 'menu_settings_products_description',
+            'type'     => 'textarea',
+            'title'    => __( 'Products Description Menu', 'mmasivo-theme' ),
+            'subtitle' => __( 'Type the description for Products Menu', 'mmasivo-theme' ),
+        ),
+        array(
+            'id'       => 'menu_settings_products_cta_link',
+            'type'     => 'text',
+            'title'    => __( 'Products CTA Link', 'mmasivo-theme' ),
+            'subtitle' => __( 'Type the link for the CTA in Products Menu', 'mmasivo-theme' ),
+        ),
+        array(
+            'id'       => 'menu_settings_products_cta_label',
+            'type'     => 'text',
+            'title'    => __( 'Products CTA Label', 'mmasivo-theme' ),
+            'subtitle' => __( 'Type the label for the CTA in Products Menu', 'mmasivo-theme' ),
+        ),
+
+        array(
+            'id'       => 'menu_settings_solutions_title',
+            'type'     => 'text',
+            'title'    => __( 'Solutions Title Menu', 'mmasivo-theme' ),
+            'subtitle' => __( 'Type the title for Solutions Menu', 'mmasivo-theme' ),
+        ),
+        array(
+            'id'       => 'menu_settings_solutions_subtitle',
+            'type'     => 'text',
+            'title'    => __( 'Solutions Subtitle Menu', 'mmasivo-theme' ),
+            'subtitle' => __( 'Type the subtitle for Solutions Menu', 'mmasivo-theme' ),
+        ),
+        array(
+            'id'       => 'menu_settings_solultions_description',
+            'type'     => 'textarea',
+            'title'    => __( 'Solutions Description Menu', 'mmasivo-theme' ),
+            'subtitle' => __( 'Type the description for Solutions Menu', 'mmasivo-theme' ),
+        ),
+        array(
+            'id'       => 'menu_settings_solutions_cta_link',
+            'type'     => 'text',
+            'title'    => __( 'Solutions CTA Link', 'mmasivo-theme' ),
+            'subtitle' => __( 'Type the link for the CTA in Solutions Menu', 'mmasivo-theme' ),
+        ),
+        array(
+            'id'       => 'menu_settings_solutions_cta_label',
+            'type'     => 'text',
+            'title'    => __( 'Solutions CTA Label', 'mmasivo-theme' ),
+            'subtitle' => __( 'Type the label for the CTA in Solutions Menu', 'mmasivo-theme' ),
+        ),
+
+        array(
+            'id'       => 'menu_settings_partnerships_title',
+            'type'     => 'text',
+            'title'    => __( 'Partnerships Title Menu', 'mmasivo-theme' ),
+            'subtitle' => __( 'Type the title for Partnerships Menu', 'mmasivo-theme' ),
+        ),
+        array(
+            'id'       => 'menu_settings_partnerships_subtitle',
+            'type'     => 'text',
+            'title'    => __( 'Partnerships Subtitle Menu', 'mmasivo-theme' ),
+            'subtitle' => __( 'Type the subtitle for Partnerships Menu', 'mmasivo-theme' ),
+        ),
+        array(
+            'id'       => 'menu_settings_partnerships_description',
+            'type'     => 'textarea',
+            'title'    => __( 'Partnerships Description Menu', 'mmasivo-theme' ),
+            'subtitle' => __( 'Type the description for Partnerships Menu', 'mmasivo-theme' ),
+        ),
+        array(
+            'id'       => 'menu_settings_partnerships_cta_link',
+            'type'     => 'text',
+            'title'    => __( 'Partnerships CTA Link', 'mmasivo-theme' ),
+            'subtitle' => __( 'Type the link for the CTA in Partnerships Menu', 'mmasivo-theme' ),
+        ),
+        array(
+            'id'       => 'menu_settings_partnerships_cta_label',
+            'type'     => 'text',
+            'title'    => __( 'Partnerships CTA Label', 'mmasivo-theme' ),
+            'subtitle' => __( 'Type the label for the CTA in Partnerships Menu', 'mmasivo-theme' ),
+        ),
+
+        array(
+            'id'       => 'menu_settings_integrations_title',
+            'type'     => 'text',
+            'title'    => __( 'Integration Title Menu', 'mmasivo-theme' ),
+            'subtitle' => __( 'Type the title for Integration Menu', 'mmasivo-theme' ),
+        ),
+        array(
+            'id'       => 'menu_settings_integrations_subtitle',
+            'type'     => 'text',
+            'title'    => __( 'Integration Subtitle Menu', 'mmasivo-theme' ),
+            'subtitle' => __( 'Type the subtitle for Integration Menu', 'mmasivo-theme' ),
+        ),
+        array(
+            'id'       => 'menu_settings_integrations_description',
+            'type'     => 'textarea',
+            'title'    => __( 'Integration Description Menu', 'mmasivo-theme' ),
+            'subtitle' => __( 'Type the description for Integration Menu', 'mmasivo-theme' ),
+        ),
+        array(
+            'id'       => 'menu_settings_integrations_cta_link',
+            'type'     => 'text',
+            'title'    => __( 'Integration CTA Link', 'mmasivo-theme' ),
+            'subtitle' => __( 'Type the link for the CTA in Integration Menu', 'mmasivo-theme' ),
+        ),
+        array(
+            'id'       => 'menu_settings_integrations_cta_label',
+            'type'     => 'text',
+            'title'    => __( 'Integration CTA Label', 'mmasivo-theme' ),
+            'subtitle' => __( 'Type the label for the CTA in Integration Menu', 'mmasivo-theme' ),
+        ),
+
+        
+        array(
+            'id'       => 'menu_settings_login_label',
+            'type'     => 'text',
+            'title'    => __( 'Login Label', 'mmasivo-theme' ),
+        ),
+        array(
+            'id'       => 'menu_settings_login_url',
+            'type'     => 'text',
+            'title'    => __( 'Login Url', 'mmasivo-theme' ),
+        ),
+        array(
+            'id'       => 'menu_settings_contact_page_label',
+            'type'     => 'text',
+            'title'    => __( 'Contact Label', 'mmasivo-theme' ),
+        ),
+        array(
+            'id'       => 'menu_settings_contact_page',
+            'type'     => 'select',
+            'multi'    => false,
+            'data'     => 'page',
+            'title'    => __( 'Contact Page', 'mmasivo-theme' ),
+            'subtitle' => __( 'Choose your contact page', 'mmasivo-theme' ),
+        ),
     )
 ));
 
@@ -334,8 +481,8 @@ if ( ! function_exists( 'dynamic_section' ) ) {
     function dynamic_section( $sections ) {
         //$sections = array();
         $sections[] = array(
-            'title'  => __( 'Section via hook', 'mmasivo' ),
-            'desc'   => __( '<p class="description">This is a section created by adding a filter to the sections array. Can be used by child themes to add/remove sections from the options.</p>', 'mmasivo' ),
+            'title'  => __( 'Section via hook', 'mmasivo-theme' ),
+            'desc'   => __( '<p class="description">This is a section created by adding a filter to the sections array. Can be used by child themes to add/remove sections from the options.</p>', 'mmasivo-theme' ),
             'icon'   => 'el el-paper-clip',
             // Leave this as a blank section, no options just some intro text set above.
             'fields' => array()

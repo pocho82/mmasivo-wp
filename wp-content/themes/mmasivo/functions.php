@@ -1,47 +1,21 @@
 <?php
-/**
- * Theme setup and custom theme supports.
- */
-require get_template_directory() . '/includes/functions/setup.php';
 
-add_filter( 'cmb2_render_pw_map', function() {
-	wp_deregister_script( 'pw-google-maps-api' );
-	wp_register_script( 'pw-google-maps-api', '//maps.googleapis.com/maps/api/js?libraries=places&key=XXXXXXXXXXXXXXXXXXXXXXXXXXX', null, null );
-}, 12 );
+use MMasivo\BaseTheme\Main;
+
+define( 'THEME_VERSION', wp_get_theme( 'mmasivo' )->get( 'Version' ) );
+define( 'THEME_DIR', get_template_directory() );
+define( 'THEME_URI', get_template_directory_uri() );
 
 /**
- * Register widget area.
+ * Gets the theme instance
  *
- * @link http://codex.wordpress.org/Function_Reference/register_sidebar
+ * @return Main
  */
-require get_template_directory() . '/includes/functions/widgets.php';
+function init_theme(): Main {
+	require_once THEME_DIR . '/includes/functions/Main.php';
+	require_once THEME_DIR . '/options-config.php';
 
-/**
-* Load functions to secure your WP install.
-*/
-require get_template_directory() . '/includes/functions/security.php';
+	return Main::instance();
+}
 
-/**
- * Enqueue scripts and styles.
- */
-require get_template_directory() . '/includes/functions/loads.php';
-
-/**
- * Custom options theme
- */
-require get_template_directory() . '/includes/functions/options_config.php';
-
-/**
- * All Ajax .
- */
-// require get_template_directory() . '/includes/functions/ajax/ajax-example.php';
-
-/**
- *  Generate variables JS globals
- */
-require get_template_directory() . '/includes/functions/generate_variables_js.php';
-
-/**
- *  Add category and post tag to pages
- */
-require get_template_directory() . '/includes/functions/category_page.php';
+init_theme();

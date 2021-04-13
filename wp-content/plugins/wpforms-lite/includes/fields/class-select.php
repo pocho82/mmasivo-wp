@@ -8,6 +8,13 @@
 class WPForms_Field_Select extends WPForms_Field {
 
 	/**
+	 * Choices JS version.
+	 *
+	 * @since 1.6.3
+	 */
+	const CHOICES_VERSION = '9.0.1';
+
+	/**
 	 * Classic (old) style.
 	 *
 	 * @since 1.6.1
@@ -223,7 +230,7 @@ class WPForms_Field_Select extends WPForms_Field {
 					'slug'    => 'show_values',
 					'value'   => isset( $field['show_values'] ) ? $field['show_values'] : '0',
 					'desc'    => esc_html__( 'Show Values', 'wpforms-lite' ),
-					'tooltip' => esc_html__( 'Check this to manually set form field values.', 'wpforms-lite' ),
+					'tooltip' => esc_html__( 'Check this option to manually set form field values.', 'wpforms-lite' ),
 				),
 				false
 			);
@@ -243,9 +250,22 @@ class WPForms_Field_Select extends WPForms_Field {
 			$field,
 			array(
 				'slug'    => 'multiple',
-				'value'   => ! empty( $field['multiple'] ) ? true : false,
+				'value'   => ! empty( $field['multiple'] ),
 				'desc'    => esc_html__( 'Multiple Options Selection', 'wpforms-lite' ),
-				'tooltip' => esc_html__( 'Allow users to select multiple choices in this field.', 'wpforms-lite' ),
+				'tooltip' => esc_html__( 'Allow users to select multiple choices in this field.', 'wpforms-lite' ) . '<br>' .
+							sprintf(
+								wp_kses( /* translators: %s - URL to WPForms.com doc article. */
+									esc_html__( 'For details, including how this looks and works for your site\'s visitors, please check out <a href="%s" target="_blank" rel="noopener noreferrer">our doc</a>. ', 'wpforms-lite' ),
+									[
+										'a' => [
+											'href'   => [],
+											'target' => [],
+											'rel'    => [],
+										],
+									]
+								),
+								'https://wpforms.com/docs/how-to-allow-multiple-selections-to-a-dropdown-field-in-wpforms/'
+							),
 			),
 			false
 		);
@@ -372,6 +392,7 @@ class WPForms_Field_Select extends WPForms_Field {
 		$field_placeholder = ! empty( $field['placeholder'] ) ? $field['placeholder'] : '';
 		$is_multiple       = ! empty( $field['multiple'] );
 		$is_modern         = ! empty( $field['style'] ) && self::STYLE_MODERN === $field['style'];
+		$choices           = $field['properties']['inputs'];
 
 		if ( ! empty( $field['required'] ) ) {
 			$container['attr']['required'] = 'required';
@@ -395,9 +416,10 @@ class WPForms_Field_Select extends WPForms_Field {
 			if ( ! empty( $field['size'] ) ) {
 				$container['data']['size-class'] = 'wpforms-field-row wpforms-field-' . sanitize_html_class( $field['size'] );
 			}
+
+			$container['data']['search-enabled'] = $this->is_choicesjs_search_enabled( count( $choices ) );
 		}
 
-		$choices     = $field['properties']['inputs'];
 		$has_default = false;
 
 		// Check to see if any of the options were selected by default.
@@ -574,7 +596,7 @@ class WPForms_Field_Select extends WPForms_Field {
 				'wpforms-choicesjs',
 				WPFORMS_PLUGIN_URL . "assets/css/choices{$min}.css",
 				array(),
-				'9.0.1'
+				self::CHOICES_VERSION
 			);
 		}
 	}
@@ -599,33 +621,7 @@ class WPForms_Field_Select extends WPForms_Field {
 		}
 
 		if ( $has_modern_select || wpforms()->frontend->assets_global() ) {
-			wp_enqueue_script(
-				'wpforms-choicesjs',
-				WPFORMS_PLUGIN_URL . 'assets/js/choices.min.js',
-				array(),
-				'9.0.1',
-				true
-			);
-
-			$config = array(
-				'removeItemButton'  => true,
-				'shouldSort'        => false,
-				'loadingText'       => esc_html__( 'Loading...', 'wpforms-lite' ),
-				'noResultsText'     => esc_html__( 'No results found.', 'wpforms-lite' ),
-				'noChoicesText'     => esc_html__( 'No choices to choose from.', 'wpforms-lite' ),
-				'itemSelectText'    => esc_attr__( 'Press to select.', 'wpforms-lite' ),
-				'uniqueItemText'    => esc_html__( 'Only unique values can be added.', 'wpforms-lite' ),
-				'customAddItemText' => esc_html__( 'Only values matching specific conditions can be added.', 'wpforms-lite' ),
-			);
-
-			// Allow theme/plugin developers to modify the provided or add own Choices.js settings.
-			$config = apply_filters( 'wpforms_field_select_choicesjs_config', $config, $forms, $this );
-
-			wp_localize_script(
-				'wpforms-choicesjs',
-				'wpforms_choicesjs_config',
-				$config
-			);
+			$this->enqueue_choicesjs_once( $forms );
 		}
 	}
 
@@ -662,6 +658,32 @@ class WPForms_Field_Select extends WPForms_Field {
 		}
 
 		return $is_field_style;
+	}
+
+	/**
+	 * Get field name for ajax error message.
+	 *
+	 * @since 1.6.3
+	 *
+	 * @param string $name  Field name for error triggered.
+	 * @param array  $field Field settings.
+	 * @param array  $props List of properties.
+	 * @param string $error Error message.
+	 *
+	 * @return string
+	 */
+	public function ajax_error_field_name( $name, $field, $props, $error ) {
+
+		if ( ! isset( $field['type'] ) || 'select' !== $field['type'] ) {
+			return $name;
+		}
+		if ( ! empty( $field['multiple'] ) ) {
+			$input = isset( $props['inputs'] ) ? end( $props['inputs'] ) : [];
+
+			return isset( $input['attr']['name'] ) ? $input['attr']['name'] . '[]' : '';
+		}
+
+		return $name;
 	}
 }
 

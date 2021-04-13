@@ -22,7 +22,29 @@
   @include font-regular;
   color: $color-text;
   font-size: $font-paragraph-size;
-  line-height: 27px;
+  line-height: 1.3;
+}
+
+@mixin title-block-font-styles {
+  @include font-bold;
+  font-size: 25px;
+  line-height: 1.3;
+
+  @media all and (min-width: $screen-md) {
+    font-size: 38px;
+  }
+}
+
+@mixin title-block-styles {
+  @include title-block-font-styles;
+  max-width: $max-width-for-titles;
+  margin-right: auto;
+  margin-bottom: 30px;
+  margin-left: auto;
+
+  @media all and (min-width: $screen-md) {
+    margin-bottom: 50px;
+  }
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -62,6 +84,7 @@ ul li {
 a {
   @include paragraph-styles;
   @include font-medium;
+  color: $color-link;
   transition-property: color;
   transition-duration: 0.25s;
   transition-timing-function: ease-in-out;
@@ -69,15 +92,34 @@ a {
 
   &:focus {
     outline: none;
+    color: darken($color-link, 20%);
   }
 
   &:hover {
     transition-timing-function: ease-in;
     color: $color-green-dark;
     text-decoration: none;
+    color: darken($color-link, 20%);
   }
 }
 
 strong {
   font-weight: bold;
+}
+
+.wysiwyg-field {
+  h2 {
+    @include title-block-styles;
+  }
+
+  h3 {
+    @include font-regular;
+    margin-bottom: 20px;
+    font-size: 22px;
+    line-height: 1.5;
+
+    @media all and (min-width: $screen-md) {
+      font-size: 25px;
+    }
+  }
 }

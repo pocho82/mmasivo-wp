@@ -12,8 +12,25 @@
 @import './base/theme_basics';
 
 @import './atoms/buttons/buttons';
+@import './atoms/scroll-indicator/scroll-indicator';
 
 @import './organisms/header/header';
 @import './organisms/footer/footer';
+@import './organisms/forms/forms';
 
-@import './pages/home-page/home-page';
+@import './templates/content/content';
+
+@import './blocks/client-stories/client-stories';
+@import './blocks/clients/clients';
+@import './blocks/contact-section/contact-section';
+@import './blocks/cta/cta';
+@import './blocks/features-flow/features-flow';
+@import './blocks/features-section/features-section';
+@import './blocks/features/features';
+@import './blocks/hero-feature/hero-feature';
+@import './blocks/hero-page/hero-page';
+@import './blocks/informative-teaser/informative-teaser';
+@import './blocks/intro-text/intro-text';
+@import './blocks/tabs/tabs';
+@import './blocks/teaser-with-qr/teaser-with-qr';
+@import './blocks/testimonials/testimonials';

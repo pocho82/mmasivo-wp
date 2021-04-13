@@ -1,28 +1,25 @@
-# Copyright (C) 2015 Radio Buttons for Taxonomies
+# Copyright (C) 2021 helgatheviking
 # This file is distributed under the same license as the Radio Buttons for Taxonomies package.
 msgid ""
 msgstr ""
-"Project-Id-Version: Radio Buttons for Taxonomies 1.7.7\n"
+"Project-Id-Version: Radio Buttons for Taxonomies 2.3.1\n"
 "Report-Msgid-Bugs-To: "
-"http://wordpress.org/support/plugin/radio-buttons-for-taxonomies\n"
-"POT-Creation-Date: 2015-12-09 00:34:52+00:00\n"
+"https://wordpress.org/support/plugin/Radio-Buttons-for-Taxonomies\n"
+"POT-Creation-Date: 2021-04-02 15:25:57+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2021-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
+"X-Generator: grunt-wp-i18n 1.0.3\n"
 
-#: inc/class.WordPress_Radio_Taxonomy.php:133
-msgid "Most Used"
-msgstr ""
-
-#: inc/class.WordPress_Radio_Taxonomy.php:175
+#: inc/class-wordpress-radio-taxonomy.php:187
 #. translators: %s: add new taxonomy label
 msgid "+ %s"
 msgstr ""
 
-#: inc/class.WordPress_Radio_Taxonomy.php:261
+#: inc/class-wordpress-radio-taxonomy.php:342
 msgid "No %s"
 msgstr ""
 
@@ -34,28 +31,40 @@ msgstr ""
 msgid "Select taxonomies to convert to radio buttons"
 msgstr ""
 
-#: inc/plugin-options.php:48
+#: inc/plugin-options.php:44
 msgid "Options"
 msgstr ""
 
-#: inc/plugin-options.php:55
+#: inc/plugin-options.php:51
 msgid "Completely remove options on plugin removal"
 msgstr ""
 
-#: inc/plugin-options.php:62
+#: inc/plugin-options.php:58
 msgid "Save Changes"
 msgstr ""
 
-#: radio-buttons-for-taxonomies.php:90 radio-buttons-for-taxonomies.php:99
-msgid "Cheatin&#8217; huh?"
+#: radio-buttons-for-taxonomies.php:80
+msgid "Cloning this object is forbidden."
 msgstr ""
 
-#: radio-buttons-for-taxonomies.php:202
+#: radio-buttons-for-taxonomies.php:89
+msgid "Unserializing instances of this class is forbidden."
+msgstr ""
+
+#: radio-buttons-for-taxonomies.php:210
 msgid "Radio Buttons for Taxonomies Options Page"
 msgstr ""
 
-#: radio-buttons-for-taxonomies.php:266
+#: radio-buttons-for-taxonomies.php:317
 msgid "Settings"
+msgstr ""
+
+#: radio-buttons-for-taxonomies.php:334
+msgid "Donate"
+msgstr ""
+
+#: radio-buttons-for-taxonomies.php:366
+msgid "Radio taxonomy should show no term option."
 msgstr ""
 
 #. Plugin URI of the plugin/theme
@@ -67,9 +76,9 @@ msgid "Use radio buttons for any taxonomy so users can only select 1 term at a t
 msgstr ""
 
 #. Author of the plugin/theme
-msgid "Kathy Darling"
+msgid "helgatheviking"
 msgstr ""
 
 #. Author URI of the plugin/theme
-msgid "http://www.kathyisawesome.com"
+msgid "https://www.kathyisawesome.com"
 msgstr ""

@@ -1,0 +1,31 @@
+.t-content {
+  position: relative;
+  min-height: 500px;
+
+  &:before,
+  &:after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+
+  &:before {
+    top: 0;
+    right: 0;
+    max-width: 230px;
+    max-height: 243px;
+    background-image: url(../images/pattern-top-right.svg);
+    background-position: top right;
+  }
+
+  &:after {
+    bottom: 0;
+    left: 0;
+    max-width: 200px;
+    max-height: 225px;
+    background-image: url(../images/pattern-bottom-left.svg);
+  }
+}

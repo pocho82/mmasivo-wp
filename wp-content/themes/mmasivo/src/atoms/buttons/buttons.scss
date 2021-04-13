@@ -4,8 +4,29 @@
   border-radius: 25px;
   background-color: $color-green;
   color: $color-white;
-  font-size: 20px;
+  font-size: 16px;
   line-height: 1.2;
   text-transform: uppercase;
+  transition-property: background-color;
+  transition-duration: 0.25s;
+  transition-timing-function: ease-in-out;
+
+  @media all and (min-width: $screen-md) {
+    font-size: 20px;
+  }
+
+  &:hover {
+    background-color: darken($color-green, 4%);
+    color: $color-white;
+    transition-timing-function: ease-in;
+  }
+
+  &--secondary {
+    background-color: $color-purple;
+
+    &:hover {
+      background-color: darken($color-purple, 4%);
+    }
+  }
 }
 

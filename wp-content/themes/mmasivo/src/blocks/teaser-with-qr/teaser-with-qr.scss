@@ -1,0 +1,84 @@
+.teaser-qr {
+  padding: 40px 0;
+
+  &__container {
+    max-width: 1100px;
+    margin-right: auto;
+    margin-left: auto;
+    padding: 40px 20px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    border-radius: 25px;
+
+    @media all and (min-width: $screen-md) {
+      padding: 70px;
+    }
+
+    @media all and (min-width: $screen-lg) {
+      padding-right: 120px;
+      padding-left: 120px;
+    }
+
+    &--bg-blue {
+      background-color: rgba($color-blue, 0.25);
+    }
+  
+    &--bg-purple {
+      background-color: rgba($color-purple, 0.25);
+    }
+  }
+
+  &__content {
+    @media all and (max-width: $screen-md - 1px) {
+      @include change-size-col(12);
+      order: 2;
+      margin-top: 50px;
+      text-align: center;
+    }
+
+    @media all and (min-width: $screen-md) {
+      padding-right: 30px;
+    }
+
+    @media all and (min-width: $screen-lg) {
+      padding-right: 60px;
+    }
+
+    &__title {
+      @include title-block-font-styles;
+
+      @media all and (min-width: $screen-md) {
+        max-width: 73%;
+      }
+    }
+
+    &__description {
+      @include paragraph-styles;
+      margin-top: 20px;
+      line-height: 1.7;
+    }
+  }
+
+  &__image {
+    text-align: center;
+
+    @media all and (max-width: $screen-md - 1px) {
+      @include change-size-col(12);
+    }
+
+    @media all and (min-width: $screen-md) {
+      text-align: right;
+    }
+
+    img {
+      width: 280px;
+
+      @media all and (min-width: $screen-md) {
+        width: 210px;
+      }
+
+      @media all and (min-width: $screen-lg) {
+        width: 280px;
+      }
+    }
+  }
+}

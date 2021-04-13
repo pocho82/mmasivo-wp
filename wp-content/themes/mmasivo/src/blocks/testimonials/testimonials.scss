@@ -1,0 +1,50 @@
+.testimonials {
+  padding: 60px 0;
+
+  &__container {
+    overflow: hidden;
+    position: relative;
+    max-width: 900px;
+    margin-right: auto;
+    margin-left: auto;
+    padding-bottom: 70px;
+
+    .testimonial {
+      @include font-light;
+      text-align: center;
+
+      &__client {
+        svg {
+          max-height: 250px;
+        }
+      }
+
+      &__description {
+        margin-top: 15px;
+        line-height: 1.7;
+      }
+
+      &__by {
+        margin-top: 30px;
+      }
+
+      &__position {
+        margin-top: 10px;
+      }
+    }
+
+    .swiper-pagination {
+      &-bullet {
+        width: 12px;
+        height: 12px;
+        margin: 0 8px !important;
+        background-color: transparent;
+        border: 2px solid $color-purple;
+      }
+
+      &-bullet-active {
+        background-color: $color-purple;
+      }
+    }
+  }
+}

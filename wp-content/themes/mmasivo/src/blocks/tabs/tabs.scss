@@ -1,0 +1,83 @@
+.tabs {
+  padding: 90px 0;
+
+  &__title {
+    @include title-block-styles;
+    text-align: center;
+  }
+
+  &__navigation {
+    text-align: center;
+
+    @media all and (min-width: $screen-md) {
+      margin-top: 70px;
+    }
+
+    &__menu-item {
+      position: relative;
+      display: inline-block;
+      max-width: 220px;
+      margin: 0 15px;
+      padding: 8px 20px;
+      border-radius: 25px;
+      background-color: transparent;
+      color: $color-text;
+      font-size: 18px;
+      line-height: 1.5;
+      cursor: pointer;
+      transition-property: background-color, color;
+      transition-duration: 0.25s;
+      transition-timing-function: ease-in-out;
+      text-align: center;
+
+      @media all and (max-width: $screen-md - 1px) {
+        margin-bottom: 15px;
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+
+      &:hover,
+      &.is-active {
+        background-color: $color-blue;
+        color: $color-white;
+        transition-timing-function: ease-in;
+      }
+    }
+  }
+
+  &__content {
+    position: relative;
+    max-width: 1100px;
+    margin-top: 50px;
+    margin-right: auto;
+    margin-left: auto;
+
+    .content-element {
+      position: absolute;
+      top: 15px;
+      left: 0;
+      opacity: 0;
+      pointer-events: none;
+      transition-property: top, opacity;
+      transition-duration: 0;
+      transition-timing-function: ease-in-out;
+
+      &.is-shown {
+        position: relative;
+        top: 0;
+        opacity: 1;
+        pointer-events: initial;
+        transition-duration: 0.3s;
+        transition-timing-function: ease-in;
+      }
+
+      &__content {
+        @media all and (max-width: $screen-md - 1px) {
+          margin-top: 20px;
+        }
+      }
+    }
+  }
+}

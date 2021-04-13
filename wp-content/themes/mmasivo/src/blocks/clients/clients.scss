@@ -1,0 +1,15 @@
+.clients {
+  padding: 50px 0;
+
+  &__container {
+    overflow: hidden;
+
+    .client {
+      max-width: 220px;
+
+      svg {
+        max-height: 100px;
+      }
+    }
+  }
+}

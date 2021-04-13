@@ -310,9 +310,13 @@ class WPForms_Builder {
 		wp_enqueue_script(
 			'dom-purify',
 			WPFORMS_PLUGIN_URL . 'assets/js/purify.min.js',
-			array(),
-			'2.0.12'
+			[],
+			'2.2.7'
 		);
+
+		if ( wp_is_mobile() ) {
+			wp_enqueue_script( 'jquery-touch-punch' );
+		}
 
 		wp_enqueue_script(
 			'wpforms-utils',
@@ -439,6 +443,22 @@ class WPForms_Builder {
 			'redirect_url_field_error'       => esc_html__( 'You should enter a valid absolute address to the Confirmation Redirect URL field.', 'wpforms-lite' ),
 			'add_custom_value_label'         => esc_html__( 'Add Custom Value', 'wpforms-lite' ),
 			'choice_empty_label_tpl'         => esc_html__( 'Choice {number}', 'wpforms-lite' ),
+			'error_save_form'                => esc_html__( 'Something went wrong while saving the form. Please reload the page and try again.', 'wpforms-lite' ),
+			'error_contact_support'          => esc_html__( 'Please contact the plugin support team if this behavior persists.', 'wpforms-lite' ),
+		);
+
+		$strings['disable_entries'] = sprintf(
+			wp_kses( /* translators: %s - Link to the WPForms.com doc article. */
+				__( 'Disabling entry storage for this form will completely prevent any new submissions from getting saved to your site. If you still intend to keep a record of entries through notification emails, then please <a href="%s" target="_blank" rel="noopener noreferrer">test your form</a> to ensure emails send reliably.', 'wpforms-lite' ),
+				[
+					'a' => [
+						'href'   => [],
+						'rel'    => [],
+						'target' => [],
+					],
+				]
+			),
+			'https://wpforms.com/docs/how-to-properly-test-your-wordpress-forms-before-launching-checklist/'
 		);
 
 		$strings = apply_filters( 'wpforms_builder_strings', $strings, $this->form );
@@ -519,8 +539,9 @@ class WPForms_Builder {
 			return;
 		}
 
-		$form_id  = $this->form ? absint( $this->form->ID ) : '';
-		$field_id = ! empty( $this->form_data['field_id'] ) ? $this->form_data['field_id'] : '';
+		$form_id      = $this->form ? absint( $this->form->ID ) : '';
+		$field_id     = ! empty( $this->form_data['field_id'] ) ? $this->form_data['field_id'] : '';
+		$allowed_caps = [ 'edit_posts', 'edit_other_posts', 'edit_private_posts', 'edit_published_posts', 'edit_pages', 'edit_other_pages', 'edit_published_pages', 'edit_private_pages' ];
 		?>
 
 		<div id="wpforms-builder" class="wpforms-admin-page">
@@ -575,12 +596,19 @@ class WPForms_Builder {
 
 					<div class="wpforms-right">
 
+						<a href="#" id="wpforms-help" title="<?php esc_attr_e( 'Help', 'wpforms-lite' ); ?>">
+							<i class="fa fa-question-circle"></i>
+							<span><?php esc_html_e( 'Help', 'wpforms-lite' ); ?></span>
+						</a>
+
 						<?php if ( $this->form ) : ?>
 
-							<a href="#" id="wpforms-embed" title="<?php esc_attr_e( 'Embed Form', 'wpforms-lite' ); ?>">
-								<i class="fa fa-code"></i>
-								<span class="text"><?php esc_html_e( 'Embed', 'wpforms-lite' ); ?></span>
-							</a>
+							<?php if ( array_filter( (array) $allowed_caps, 'current_user_can' ) ) : ?>
+								<a href="#" id="wpforms-embed" title="<?php esc_attr_e( 'Embed Form', 'wpforms-lite' ); ?>">
+									<i class="fa fa-code"></i>
+									<span class="text"><?php esc_html_e( 'Embed', 'wpforms-lite' ); ?></span>
+								</a>
+							<?php endif; ?>
 
 							<a href="#" id="wpforms-save" title="<?php esc_attr_e( 'Save Form', 'wpforms-lite' ); ?>">
 								<i class="fa fa-check"></i>

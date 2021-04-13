@@ -1,0 +1,59 @@
+.o-forms {
+  .wpforms-field-container {
+    @include make-grid(between, top);
+
+    > .wpforms-field {
+      @include make-col(6);
+
+      &.wpforms-field-textarea,
+      &.wpforms-field-checkbox {
+        @include make-col(12);
+      }
+    }
+  }
+
+  &__field {
+    padding: 15px 25px !important;
+
+    label {
+      @include font-medium;
+      margin-bottom: 12px;
+      font-size: 18px;
+      line-height: 1.3;
+      color: $color-text;
+    }
+
+    input[type='text'],
+    input[type='email'],
+    textarea,
+    select {
+      @include font-regular;
+      width: 100% !important;
+      max-width: none !important;
+      border-radius: 8px !important;
+      line-height: 1.3;
+      color: $color-text;
+    }
+
+    input[type='text'],
+    input[type='email']
+    select {
+      height: 45px;
+    }
+  }
+
+  .wpforms-submit-container {
+    padding: 20px 25px 0 !important;
+    text-align: center;
+
+    .a-button {
+      padding: 12px 30px !important;
+      border-radius: 25px !important;
+      background-color: $color-purple !important;
+      color: $color-white !important;
+      font-size: 20px !important;
+      line-height: 1.2 !important;
+      text-transform: uppercase !important;
+    }
+  }
+}
